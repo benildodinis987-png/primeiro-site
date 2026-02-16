@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Administrativo</title>
+  <link rel="stylesheet" href="pb.css">
+<style>
+
+  /* Dropdown fixo no canto superior direito */
+.dropdown {
+  position: fixed;  /* fixo na tela */
+  top: 20px;        /* distância do topo */
+  right: 20px;      /* distância da direita */
+  display: inline-block;
+  z-index: 1000;    /* fica acima do conteúdo */
+}
+
+.dropbtn {
+  background-color: #2980b9;
+  color: white;
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropbtn:hover {
+  background-color: #3498db;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;  /* o menu desce alinhado à direita do botão */
+  background-color: #ffffff;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #2c3e50;
+  padding: 10px 12px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ===== LOADING ===== */
+#loading {
+  position: fixed;
+  inset: 0;
+  background: #18e0fe;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #eee;
+  border-top: 6px solid #0224ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+#loading p {
+  font-size: 18px;
+  font-weight: bold;
+  color: #110202;
+}
+
+/* Conteúdo escondido no início */
+#conteudo {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADING -->
+<div id="loading">
+  <div class="spinner"></div>
+  <p>Bem-vindo ao Sistema</p>
+</div>
+
+<!-- CONTEÚDO DO SITE -->
+<div id="conteudo">
+<script>
+/* TEMPO DO LOADING (em milissegundos) */
+setTimeout(() => {
+  document.getElementById("loading").style.display = "none";
+  document.getElementById("conteudo").style.display = "block";
+}, 2000); // 2 segundos
+</script>
+
+
+</head>
+<body>
+<!-- Menu suspenso no canto superior esquerdo -->
+<div class="dropdown">
+  <button class="dropbtn">Menu</button>
+  <div class="dropdown-content">
+    <a href="Home.html">Voltar</a>
+    <a href="#" onclick="verDetalhes()">Detalhes</a>
+  </div>
+</div>
+
+<header>
+  <center><img src="https://media.licdn.com/dms/image/v2/D4D22AQFjS-MMSB7I2w/feedshare-shrink_800/B4DZwT0wAcJYAg-/0/1769859121404?e=2147483647&v=beta&t=MVx_xzTtM2hm9pSNJbbBov6F_AbrMugaewmwiRUWujo" width="300" height="150"></center>
+<h1>Informações Atuais</h1>
+  <p>Atualizações e comunicados oficiais do FTI</p>
+</header>
+
+<main>
+  <section class="cards" id="cards-container">
+    <!-- Os cards serão carregados aqui pelo JS -->
+  </section>
+</main>
+
+<script src="Delta.js"></script>
+</body>
+</html>
